@@ -14,10 +14,10 @@ datasource db {
 }
 
 model Series {
-  Id Int @id @default(autoincrement())
+  id Int @id @default(autoincrement())
   name String @unique
   description String?
-  Rating Boolean
+  rating Boolean?  
   year Int
   genre String
   createAt DateTime @default(now())

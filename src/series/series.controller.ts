@@ -17,7 +17,7 @@ export class SeriesController {
     return this.seriesService.findAllAlive();
   }
 
-  @Get('extinct') //localhost:3000/creature/extinct
+  @Get('rating') //localhost:3000/creature/extinct
   findAllExtinct() {
     return this.seriesService.findAllExtinct();
   }

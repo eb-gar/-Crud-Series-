@@ -5,25 +5,24 @@ import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class SeriesService {
-  findAllExtinct() {
-    throw new Error('Method not implemented.');
-  }
-  constructor(private prisma: PrismaService){}
+  constructor(private prisma: PrismaService) {}
+
   create(createSeriesDto: CreateSeriesDto) {
     return 'This action adds a new series';
   }
 
   findAllAlive() {
     return this.prisma.series.findMany({
-      where:{ rating: false},
+      where: { rating: false }, 
     });
   }
 
-  finAllExtinct(){
+  findAllExtinct() { 
     return this.prisma.series.findMany({
-      where:{ ratig: true},
+      where: { rating: true }, 
     });
   }
+
   findOne(id: number) {
     return this.prisma.series.findUnique({
       where: { id },

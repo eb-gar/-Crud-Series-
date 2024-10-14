@@ -13,17 +13,21 @@ async function main() {
         create: {
             name: 'Breaking bad',
             description: 'Breaking Bad is a show about a chemistry teacher who turns into a drug manufacturer after being diagnosed with cancer.',
-            year: 2008-2013,
-            genre: ' Drama, Crimen',
+            year: 2008,
+            genre: 'Drama, Crimen',
+            rating: true,
         },
     });
 
-    const post2 = await prisma.series.create({
-        data: {
-            name: 'Breaking bad',
-            description: 'Breaking Bad is a show about a chemistry teacher who turns into a drug manufacturer after being diagnosed with cancer.',
-            year: 2008-2013,
-            genre: ' Drama, Crimen',
+    const post2 = await prisma.series.upsert({
+        where: {name: 'Better Call Saul'},
+        update:{},
+        create: {
+            name: 'Better Call Saul',
+            description: 'Better Call Saul is a spin-off of Breaking Bad, focusing on the character of Saul Goodman before the events of the original series.',
+            year: 2015,
+            genre: 'Drama, Crimen',
+            rating: false,
         },
     });
 
