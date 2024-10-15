@@ -8,18 +8,18 @@ export class SeriesService {
   constructor(private prisma: PrismaService) {}
 
   create(createSeriesDto: CreateSeriesDto) {
-    return 'This action adds a new series';
+    return this.prisma.series.findUnique;
   }
 
   findAllAlive() {
     return this.prisma.series.findMany({
-      where: { rating: false }, 
+      where: { recommendation: true }, 
     });
   }
 
-  findAllExtinct() { 
+  findAllRecommend() { 
     return this.prisma.series.findMany({
-      where: { rating: true }, 
+      where: { recommendation: false }, 
     });
   }
 
@@ -30,7 +30,7 @@ export class SeriesService {
   }
 
   update(id: number, updateSeriesDto: UpdateSeriesDto) {
-    return `This action updates a #${id} series`;
+    return this.prisma.series.findUnique;
   }
 
   remove(id: number) {

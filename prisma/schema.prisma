@@ -17,9 +17,10 @@ model Series {
   id Int @id @default(autoincrement())
   name String @unique
   description String?
-  rating Boolean?  
+  recommendation Boolean?  
   year Int
   genre String
+  platform String
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
 }
