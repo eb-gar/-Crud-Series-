@@ -3,7 +3,6 @@ import e from "express";
 
 const prisma = new PrismaClient();
 
-
 async function main() {
     const post1 = await prisma.series.upsert({
         where: {name: 'Breaking bad'},
