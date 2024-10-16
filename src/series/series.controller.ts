@@ -24,7 +24,7 @@ export class SeriesController {
         return this.seriesService.findAllRecommend();
     }
 
-  @Get(':id') //localhost:3000/creature/extinct/1
+  @Get(':id') 
   findOne(@Param('id') id: string) {
     return this.seriesService.findOne(+id);
   }
