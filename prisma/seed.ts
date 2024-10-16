@@ -61,14 +61,16 @@ async function main() {
 
     const post5 = await prisma.series.upsert({
         where: {name: 'The Boys'},
-        update:{},
+        update:{
+            recommendation: false
+        },
         create: {
             name: 'The Boys',
             description: 'When superheroes abuse their superpowers instead of using them for good, a group of "boys" embarks on a heroic quest to expose their secrets.',
             year: 2019,
             genre: 'Action, Drama',
             platform: 'Amazon Prime Video.',
-            recommendation: true,
+            recommendation: false,
         },
     });
 

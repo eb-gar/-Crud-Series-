@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { SeriesService } from './series.service';
 import { CreateSeriesDto } from './dto/create-series.dto';
 import { UpdateSeriesDto } from './dto/update-series.dto';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
 @Controller('series')
 @ApiTags('series')
@@ -19,10 +19,10 @@ export class SeriesController {
     return this.seriesService.findAllAlive();
   }
 
-  @Get('Not recommended') //localhost:3000/creature/extinct
-  findAllRecommend() {
-    return this.seriesService.findAllRecommend();
-  }
+  @Get('not-recommended')
+    async findAllNotRecommended() {
+        return this.seriesService.findAllRecommend();
+    }
 
   @Get(':id') //localhost:3000/creature/extinct/1
   findOne(@Param('id') id: string) {

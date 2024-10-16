@@ -17,7 +17,7 @@ model Series {
   id Int @id @default(autoincrement())
   name String @unique
   description String?
-  recommendation Boolean?  
+  recommendation Boolean @default(true)  
   year Int
   genre String
   platform String

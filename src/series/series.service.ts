@@ -7,33 +7,38 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class SeriesService {
   constructor(private prisma: PrismaService) {}
 
-  create(createSeriesDto: CreateSeriesDto) {
-    return this.prisma.series.findUnique;
-  }
-
-  findAllAlive() {
-    return this.prisma.series.findMany({
-      where: { recommendation: true }, 
+  async create(createSeriesDto: CreateSeriesDto) {
+    return this.prisma.series.create({
+      data: createSeriesDto,
     });
   }
 
-  findAllRecommend() { 
+  async findAllAlive() {
     return this.prisma.series.findMany({
-      where: { recommendation: false }, 
+      where: { recommendation: true },
     });
   }
 
-  findOne(id: number) {
+  async findAllRecommend() {
+    return this.prisma.series.findMany({
+      where: { recommendation: false },
+    });
+  }
+
+  async findOne(id: number) {
     return this.prisma.series.findUnique({
       where: { id },
     });
   }
 
-  update(id: number, updateSeriesDto: UpdateSeriesDto) {
-    return this.prisma.series.findUnique;
+  async update(id: number, updateSeriesDto: UpdateSeriesDto) {
+    return this.prisma.series.update({
+      where: { id },
+      data: updateSeriesDto,
+    });
   }
 
-  remove(id: number) {
+  async remove(id: number) {
     return this.prisma.series.delete({
       where: { id },
     });
