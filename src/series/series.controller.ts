@@ -39,3 +39,4 @@ export class SeriesController {
     return this.seriesService.remove(+id);
   }
 }
+.
